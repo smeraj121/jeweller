@@ -1,0 +1,68 @@
+﻿@model IEnumerable<jeweller.Models.Product>
+
+@{
+    Layout ="~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewProducts</title>
+</head>
+<body>
+    <h2>Products</h2>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditProducts", new { id=item.Product_Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

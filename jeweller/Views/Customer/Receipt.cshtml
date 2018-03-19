@@ -1,0 +1,71 @@
+﻿@model IEnumerable<jeweller.Models.CustomerModel>
+
+@{
+
+    ViewBag.Title = "Receipt";
+}
+
+<h2>Receipt</h2>
+<div>
+    @using (Html.BeginForm("Receipt", "Customer", FormMethod.Post))
+    {
+        @Html.Label("Search")
+        @Html.TextBox("name", "")
+        <input type="submit" value="Search" />
+    }
+    @Html.ActionLink("Create new User", "RegisterUser")
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pincode)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pincode)
+            </td>
+            <td>
+                @Html.ActionLink("New Bill", "CreateBill", new { id = item.Cust_Id }) |
+                @Html.ActionLink("Orders", "GetOrders", new { id = item.Cust_Id }) |
+                @Html.ActionLink("Edit", "EditCustomer", new { id = item.Cust_Id }) |
+                @Html.ActionLink("Delete", "DeleteCustomer", new { id = item.Cust_Id }, new { onclick = "return confirm('Are sure wants to delete?');" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,1 @@
+﻿insert into jeweller values('saba121','qwerty','M.V. Jewellers','9911916756','9958649712','xyz@gmail.com','X/728, Gali No. 9, Chand Mohalla, Gandhi Nagar, Delhi','110031');
